@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Nov 24 18:01:44 2015
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : uP
+Top-level Entity Name : uP
+Family : Cyclone II
+Total logic elements : 65
+    Total combinational functions : 56
+    Dedicated logic registers : 32
+Total registers : 32
+Total pins : 20
+Total virtual pins : 0
+Total memory bits : 256
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

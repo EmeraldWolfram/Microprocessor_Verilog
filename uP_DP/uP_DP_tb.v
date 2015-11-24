@@ -1,0 +1,164 @@
+`timescale 1ns/1ns
+`define PERIOD 1
+
+module uP_DP_tb();
+
+	reg		CLOCK, RESET;
+	reg		[7:0] Input;
+	reg		IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub;
+	reg 	[1:0] Asel;
+	wire	Aeq0, Apos;
+	wire	[7:5] IR;
+	wire	[7:0] Output;
+	wire	[7:0] MemOutput;
+	wire  [4:0] AddOutput;
+	reg		[7:0] tempMem[2:0];
+	integer errors, i;
+	
+
+	
+	initial begin
+	CLOCK <= 0;
+	forever #(`PERIOD) CLOCK = ~CLOCK;
+	end
+
+	initial begin
+	RESET <= 1;
+	@(posedge CLOCK)
+	@(negedge CLOCK) RESET = 0;
+	end
+
+
+	initial begin
+	errors 	= 0;
+	{IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'd0;
+	Asel 	= 2'd0;
+	Input	= 7'd0;
+#2	check_OUTPUT(7'd0, Output);
+#2	verify_INPUT_and_STORE();
+#2  {IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'b0111010;  //RESET Address to 5'b00000
+#2	verify_LOAD();
+#2  {IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'b0111010;  //RESET Address to 5'b00000
+#2	verify_ADD_and_SUB();
+#2  {IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'b0111010;  //RESET Address to 5'b00000
+#2  verify_FETCH_and_DECODE();
+#2  RESET = 1;
+#2	RESET = 0;  //RESET Address to 5'b00000
+#2  verify_JUMP();
+
+	$display("TEST SUMMARY\n------------");
+#2	if(errors == 0)
+		$display("ZERO ERROR, SIMULATION PASSED\n\n");
+	else
+		$display("TEST FAILED, TOTAL ERRORS:	%d\n\n", errors);
+#20	$finish;
+	end
+	
+	
+//********************************INSTANTIATION***********************************
+	// uP_DP	test_DP(CLOCK, RESET, Input, IRload, JMPmux, PCload, Meminst, MemWr,
+					// Aload, Sub, Asel, Aeq0, Apos, IR, Output, MemOutput, AddOutput);
+
+	uP_DP_x	test_DP(CLOCK, RESET, Input, IRload, JMPmux, PCload, Meminst, MemWr,
+					Aload, Sub, Asel, Aeq0, Apos, IR, Output, MemOutput, AddOutput);					
+//************************************TASK****************************************
+	task check_OUTPUT;
+	input [7:0] expectedValue;
+	input [7:0] actualValue;
+	begin
+		if(actualValue[7:0] != expectedValue[7:0])
+			begin
+			errors = errors + 1;
+			$display("\t\t\t*******************\n%dns: ERROR: Expected %h was %h\n", 
+			$time, expectedValue, actualValue);
+			end
+	end
+	endtask
+//*******************************************************************************
+	task verify_FETCH_and_DECODE;
+	reg [2:0] testIR;
+	begin
+		{Aload,Asel}      = 3'd0;
+		//FETCH:
+		{IRload, PCload}  = 2'b11;
+		{Meminst, MemWr}  = 2'b00;
+	 	testIR = MemOutput[7:5];
+	  $display("%dns:FETCH IR[7:5]: 3'b%b...", $time, testIR);
+  #2  check_OUTPUT(testIR, IR);
+		//DECODE:
+	  {IRload, PCload}  = 2'b01;
+    {Meminst, MemWr}  = 2'b10;
+	  $display("%dns:DECODE IR[7:5]: 3'b%b...", $time, testIR);
+  #2  check_OUTPUT(testIR, IR);
+	end
+	endtask
+//*******************************************************************************  
+	task verify_INPUT_and_STORE;
+	reg [7:0] tempOut;
+	begin
+	for(i = 0; i < 3; i = i+1)
+		begin
+	//INPUT:
+		Input 			 = {$random} % 256;
+		{IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'b0000010;
+		Asel			 = 2'b01;
+		tempOut 		 = Input;
+    $display("%dns, INPUT: 0x%h...", $time, Input);
+	#2	check_OUTPUT(tempOut, Output);
+	//STORE:
+		{IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'b0010100;
+		Asel	   = 2'b00;
+		tempMem[i] = Input;
+    $display("%dns, STORE: 0x%h...", $time, tempMem[i]);
+	#2	check_OUTPUT(tempMem[i], MemOutput);
+		end
+	end
+	endtask
+//*******************************************************************************
+	task verify_LOAD;
+	begin
+	for(i = 0; i < 3; i = i+1)
+		begin
+		{IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'b0010010;
+		Asel	= 2'b10;
+    $display("%dns, LOAD: Address %d - 0x%h...", $time, i, tempMem[i]);
+	#2	check_OUTPUT(tempMem[i], MemOutput);
+		end
+	end
+	endtask
+//*******************************************************************************
+	task verify_ADD_and_SUB;
+	reg [7:0] tempOut;
+	begin
+		{IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'b0010010;
+		Asel	   = 2'b00;
+		for(i = 0; i < 3; i = i+1)
+		begin
+		//ADD
+			Sub = 0;
+      PCload = 1;
+			tempOut = Output + tempMem[i];
+      $display("%dns, ADD: %d + %d = %d...", $time, Output, tempMem[i], tempOut);
+		#2	check_OUTPUT(tempOut, Output);
+	  //SUB
+			Sub = 1;
+      PCload = 0;
+			tempOut = Output - tempMem[i];
+      $display("%dns, SUB: %d - %d = %d...", $time, Output, tempMem[i], tempOut);
+		#2	check_OUTPUT(tempOut, Output);
+		end
+	end
+	endtask
+//*******************************************************************************
+  task verify_JUMP;
+  begin
+    Input = 8'b11100011;  
+  #2  {IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'b0000010;
+    Asel  = 2'b01;
+  #2  {IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'b0000100;  //load 1110 0011 into Addr'00000
+  #2  {IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub} = 7'b1111000;  //IR loaded with 111 00011 (Jump to 00011)
+    $display("%dns, JUMP to 00011...", $time);
+  #4  check_OUTPUT(5'd03, AddOutput);
+  end
+  endtask
+endmodule

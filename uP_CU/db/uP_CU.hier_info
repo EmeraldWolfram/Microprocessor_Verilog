@@ -1,0 +1,39 @@
+|uP_CU
+RESET => state~3.DATAIN
+CLOCK => state~1.DATAIN
+IR[5] => nextState.DATAB
+IR[5] => nextState.DATAA
+IR[5] => nextState.DATAB
+IR[5] => nextState.DATAA
+IR[6] => nextState.OUTPUTSELECT
+IR[6] => nextState.OUTPUTSELECT
+IR[6] => nextState.OUTPUTSELECT
+IR[6] => nextState.OUTPUTSELECT
+IR[7] => nextState.OUTPUTSELECT
+IR[7] => nextState.OUTPUTSELECT
+IR[7] => nextState.OUTPUTSELECT
+IR[7] => nextState.OUTPUTSELECT
+IR[7] => nextState.OUTPUTSELECT
+IR[7] => nextState.OUTPUTSELECT
+IR[7] => nextState.OUTPUTSELECT
+IR[7] => nextState.OUTPUTSELECT
+Aeq0 => Selector0.IN4
+Apos => Selector0.IN5
+Enter => Selector1.IN4
+Enter => Selector2.IN2
+IRload <= outChain.DB_MAX_OUTPUT_PORT_TYPE
+JMPmux <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+PCload <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
+Meminst <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+MemWr <= MemWr.DB_MAX_OUTPUT_PORT_TYPE
+Aload <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Sub <= Sub.DB_MAX_OUTPUT_PORT_TYPE
+Halt <= Halt.DB_MAX_OUTPUT_PORT_TYPE
+Asel[0] <= Asel[0].DB_MAX_OUTPUT_PORT_TYPE
+Asel[1] <= Asel[1].DB_MAX_OUTPUT_PORT_TYPE
+outState[0] <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
+outState[1] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+outState[2] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+outState[3] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+
+

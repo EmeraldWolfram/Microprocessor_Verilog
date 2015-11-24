@@ -1,0 +1,433 @@
+TimeQuest Timing Analyzer report for uP_CU
+Tue Nov 24 16:01:33 2015
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Fmax Summary
+  7. Setup Summary
+  8. Hold Summary
+  9. Recovery Summary
+ 10. Removal Summary
+ 11. Minimum Pulse Width Summary
+ 12. Setup: 'CLOCK'
+ 13. Hold: 'CLOCK'
+ 14. Minimum Pulse Width: 'CLOCK'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Propagation Delay
+ 20. Minimum Propagation Delay
+ 21. Setup Transfers
+ 22. Hold Transfers
+ 23. Report TCCS
+ 24. Report RSKM
+ 25. Unconstrained Paths
+ 26. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                    ;
++--------------------+-------------------------------------------------+
+; Quartus II Version ; Version 9.1 Build 222 10/21/2009 SJ Web Edition ;
+; Revision Name      ; uP_CU                                           ;
+; Device Family      ; Cyclone II                                      ;
+; Device Name        ; EP2C20F484C7                                    ;
+; Timing Models      ; Final                                           ;
+; Delay Model        ; Slow Model                                      ;
+; Rise/Fall Delays   ; Unavailable                                     ;
++--------------------+-------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------+
+; SDC File List                                     ;
++---------------+--------+--------------------------+
+; SDC File Path ; Status ; Read at                  ;
++---------------+--------+--------------------------+
+; uP_CU.out.sdc ; OK     ; Tue Nov 24 16:01:33 2015 ;
++---------------+--------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                           ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; Clock Name ; Type ; Period ; Frequency ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets   ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; CLOCK      ; Base ; 2.500  ; 400.0 MHz ; 0.000 ; 1.250 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK } ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Fmax Summary                                                                                              ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 499.75 MHz ; 380.08 MHz      ; CLOCK      ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------+
+; Setup Summary                 ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; CLOCK ; 0.499 ; 0.000         ;
++-------+-------+---------------+
+
+
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; CLOCK ; 0.445 ; 0.000         ;
++-------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++--------------------------------+
+; Minimum Pulse Width Summary    ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; CLOCK ; -0.131 ; -0.131        ;
++-------+--------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Setup: 'CLOCK'                                                                                            ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; 0.499 ; state.FETCH  ; state.START  ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 2.039      ;
+; 0.653 ; state.START  ; state.START  ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.885      ;
+; 0.724 ; state.DECODE ; state.START  ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.814      ;
+; 1.032 ; state.DECODE ; state.HALT   ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.506      ;
+; 1.078 ; state.DECODE ; state.INPUT  ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.460      ;
+; 1.203 ; state.DECODE ; state.JZ     ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.335      ;
+; 1.204 ; state.DECODE ; state.LOAD   ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.334      ;
+; 1.209 ; state.DECODE ; state.STORE  ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.329      ;
+; 1.235 ; state.DECODE ; state.SUB    ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.303      ;
+; 1.237 ; state.DECODE ; state.JPOS   ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.301      ;
+; 1.242 ; state.INPUT  ; state.START  ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.296      ;
+; 1.247 ; state.DECODE ; state.ADD    ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.291      ;
+; 1.467 ; state.FETCH  ; state.DECODE ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.071      ;
+; 1.477 ; state.START  ; state.FETCH  ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 1.061      ;
+; 1.574 ; state.HALT   ; state.START  ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 0.964      ;
+; 1.807 ; state.HALT   ; state.HALT   ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 0.731      ;
+; 1.807 ; state.INPUT  ; state.INPUT  ; CLOCK        ; CLOCK       ; 2.500        ; 0.000      ; 0.731      ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Hold: 'CLOCK'                                                                                             ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; 0.445 ; state.INPUT  ; state.INPUT  ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; state.HALT   ; state.HALT   ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 0.731      ;
+; 0.678 ; state.HALT   ; state.START  ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 0.964      ;
+; 0.775 ; state.START  ; state.FETCH  ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.061      ;
+; 0.785 ; state.FETCH  ; state.DECODE ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.071      ;
+; 1.005 ; state.DECODE ; state.ADD    ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.291      ;
+; 1.010 ; state.INPUT  ; state.START  ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.296      ;
+; 1.015 ; state.DECODE ; state.JPOS   ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.301      ;
+; 1.017 ; state.DECODE ; state.SUB    ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.303      ;
+; 1.043 ; state.DECODE ; state.STORE  ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.329      ;
+; 1.048 ; state.DECODE ; state.LOAD   ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.334      ;
+; 1.049 ; state.DECODE ; state.JZ     ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.335      ;
+; 1.174 ; state.DECODE ; state.INPUT  ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.460      ;
+; 1.220 ; state.DECODE ; state.HALT   ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.506      ;
+; 1.528 ; state.DECODE ; state.START  ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.814      ;
+; 1.599 ; state.START  ; state.START  ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 1.885      ;
+; 1.753 ; state.FETCH  ; state.START  ; CLOCK        ; CLOCK       ; 0.000        ; 0.000      ; 2.039      ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'CLOCK'                                                                            ;
++--------+--------------+----------------+------------------+-------+------------+------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                 ;
++--------+--------------+----------------+------------------+-------+------------+------------------------+
+; -0.131 ; 2.500        ; 2.631          ; Port Rate        ; CLOCK ; Rise       ; CLOCK                  ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.ADD              ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.ADD              ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.DECODE           ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.DECODE           ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.FETCH            ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.FETCH            ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.HALT             ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.HALT             ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.INPUT            ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.INPUT            ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.JPOS             ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.JPOS             ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.JZ               ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.JZ               ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.LOAD             ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.LOAD             ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.START            ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.START            ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.STORE            ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.STORE            ;
+; 0.139  ; 1.250        ; 1.111          ; High Pulse Width ; CLOCK ; Rise       ; state.SUB              ;
+; 0.139  ; 1.250        ; 1.111          ; Low Pulse Width  ; CLOCK ; Rise       ; state.SUB              ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; CLOCK|combout          ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; CLOCK|combout          ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; CLOCK~clkctrl|inclk[0] ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; CLOCK~clkctrl|inclk[0] ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; CLOCK~clkctrl|outclk   ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; CLOCK~clkctrl|outclk   ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.ADD|clk          ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.ADD|clk          ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.DECODE|clk       ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.DECODE|clk       ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.FETCH|clk        ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.FETCH|clk        ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.HALT|clk         ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.HALT|clk         ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.INPUT|clk        ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.INPUT|clk        ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.JPOS|clk         ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.JPOS|clk         ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.JZ|clk           ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.JZ|clk           ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.LOAD|clk         ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.LOAD|clk         ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.START|clk        ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.START|clk        ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.STORE|clk        ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.STORE|clk        ;
+; 1.250  ; 1.250        ; 0.000          ; High Pulse Width ; CLOCK ; Rise       ; state.SUB|clk          ;
+; 1.250  ; 1.250        ; 0.000          ; Low Pulse Width  ; CLOCK ; Rise       ; state.SUB|clk          ;
++--------+--------------+----------------+------------------+-------+------------+------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enter     ; CLOCK      ; 4.174 ; 4.174 ; Rise       ; CLOCK           ;
+; IR[*]     ; CLOCK      ; 5.433 ; 5.433 ; Rise       ; CLOCK           ;
+;  IR[5]    ; CLOCK      ; 4.255 ; 4.255 ; Rise       ; CLOCK           ;
+;  IR[6]    ; CLOCK      ; 3.992 ; 3.992 ; Rise       ; CLOCK           ;
+;  IR[7]    ; CLOCK      ; 5.433 ; 5.433 ; Rise       ; CLOCK           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; Enter     ; CLOCK      ; -3.894 ; -3.894 ; Rise       ; CLOCK           ;
+; IR[*]     ; CLOCK      ; -2.906 ; -2.906 ; Rise       ; CLOCK           ;
+;  IR[5]    ; CLOCK      ; -3.485 ; -3.485 ; Rise       ; CLOCK           ;
+;  IR[6]    ; CLOCK      ; -2.906 ; -2.906 ; Rise       ; CLOCK           ;
+;  IR[7]    ; CLOCK      ; -4.605 ; -4.605 ; Rise       ; CLOCK           ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Clock to Output Times                                                    ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; Aload        ; CLOCK      ; 7.802 ; 7.802 ; Rise       ; CLOCK           ;
+; Asel[*]      ; CLOCK      ; 7.186 ; 7.186 ; Rise       ; CLOCK           ;
+;  Asel[0]     ; CLOCK      ; 7.186 ; 7.186 ; Rise       ; CLOCK           ;
+;  Asel[1]     ; CLOCK      ; 7.151 ; 7.151 ; Rise       ; CLOCK           ;
+; Halt         ; CLOCK      ; 6.918 ; 6.918 ; Rise       ; CLOCK           ;
+; IRload       ; CLOCK      ; 9.113 ; 9.113 ; Rise       ; CLOCK           ;
+; JMPmux       ; CLOCK      ; 8.370 ; 8.370 ; Rise       ; CLOCK           ;
+; MemWr        ; CLOCK      ; 6.571 ; 6.571 ; Rise       ; CLOCK           ;
+; Meminst      ; CLOCK      ; 8.267 ; 8.267 ; Rise       ; CLOCK           ;
+; PCload       ; CLOCK      ; 8.918 ; 8.918 ; Rise       ; CLOCK           ;
+; Sub          ; CLOCK      ; 7.288 ; 7.288 ; Rise       ; CLOCK           ;
+; outState[*]  ; CLOCK      ; 9.461 ; 9.461 ; Rise       ; CLOCK           ;
+;  outState[0] ; CLOCK      ; 9.319 ; 9.319 ; Rise       ; CLOCK           ;
+;  outState[1] ; CLOCK      ; 9.461 ; 9.461 ; Rise       ; CLOCK           ;
+;  outState[2] ; CLOCK      ; 9.443 ; 9.443 ; Rise       ; CLOCK           ;
+;  outState[3] ; CLOCK      ; 8.068 ; 8.068 ; Rise       ; CLOCK           ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                            ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; Aload        ; CLOCK      ; 7.428 ; 7.428 ; Rise       ; CLOCK           ;
+; Asel[*]      ; CLOCK      ; 7.151 ; 7.151 ; Rise       ; CLOCK           ;
+;  Asel[0]     ; CLOCK      ; 7.186 ; 7.186 ; Rise       ; CLOCK           ;
+;  Asel[1]     ; CLOCK      ; 7.151 ; 7.151 ; Rise       ; CLOCK           ;
+; Halt         ; CLOCK      ; 6.918 ; 6.918 ; Rise       ; CLOCK           ;
+; IRload       ; CLOCK      ; 8.988 ; 8.988 ; Rise       ; CLOCK           ;
+; JMPmux       ; CLOCK      ; 7.978 ; 7.978 ; Rise       ; CLOCK           ;
+; MemWr        ; CLOCK      ; 6.571 ; 6.571 ; Rise       ; CLOCK           ;
+; Meminst      ; CLOCK      ; 7.857 ; 7.857 ; Rise       ; CLOCK           ;
+; PCload       ; CLOCK      ; 7.677 ; 7.677 ; Rise       ; CLOCK           ;
+; Sub          ; CLOCK      ; 7.288 ; 7.288 ; Rise       ; CLOCK           ;
+; outState[*]  ; CLOCK      ; 7.375 ; 7.375 ; Rise       ; CLOCK           ;
+;  outState[0] ; CLOCK      ; 8.122 ; 8.122 ; Rise       ; CLOCK           ;
+;  outState[1] ; CLOCK      ; 7.375 ; 7.375 ; Rise       ; CLOCK           ;
+;  outState[2] ; CLOCK      ; 8.826 ; 8.826 ; Rise       ; CLOCK           ;
+;  outState[3] ; CLOCK      ; 7.843 ; 7.843 ; Rise       ; CLOCK           ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------+
+; Propagation Delay                                    ;
++------------+-------------+--------+----+----+--------+
+; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
++------------+-------------+--------+----+----+--------+
+; Aeq0       ; PCload      ; 9.621  ;    ;    ; 9.621  ;
+; Apos       ; PCload      ; 10.457 ;    ;    ; 10.457 ;
++------------+-------------+--------+----+----+--------+
+
+
++------------------------------------------------------+
+; Minimum Propagation Delay                            ;
++------------+-------------+--------+----+----+--------+
+; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
++------------+-------------+--------+----+----+--------+
+; Aeq0       ; PCload      ; 9.621  ;    ;    ; 9.621  ;
+; Apos       ; PCload      ; 10.457 ;    ;    ; 10.457 ;
++------------+-------------+--------+----+----+--------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK      ; CLOCK    ; 17       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK      ; CLOCK    ; 17       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 7     ; 7    ;
+; Unconstrained Input Port Paths  ; 39    ; 39   ;
+; Unconstrained Output Ports      ; 14    ; 14   ;
+; Unconstrained Output Port Paths ; 40    ; 40   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Tue Nov 24 16:01:32 2015
+Info: Command: quartus_sta uP_CU -c uP_CU
+Info: qsta_default_script.tcl version: #2
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Info: Reading SDC File: 'uP_CU.out.sdc'
+Info: Worst-case setup slack is 0.499
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.499         0.000 CLOCK 
+Info: Worst-case hold slack is 0.445
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.445         0.000 CLOCK 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Critical Warning: Timing requirements not met
+Info: Worst-case minimum pulse width slack is -0.131
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -0.131        -0.131 CLOCK 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 159 megabytes
+    Info: Processing ended: Tue Nov 24 16:01:33 2015
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+
