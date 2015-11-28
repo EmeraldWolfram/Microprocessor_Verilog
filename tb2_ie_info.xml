@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--Created by Liquid XML 2008 (www.liquid-technologies.com) for ALTERA CORPORATION-->
+<ProgramExecution xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+	<AddressBits>32</AddressBits>
+	<DateInvoked>2015/11/28 09:46:05</DateInvoked>
+	<ElapsedTime>2</ElapsedTime>
+	<IsInternal>false</IsInternal>
+	<Name>quartus_map</Name>
+	<PeakMemoryUsed>0</PeakMemoryUsed>
+	<License>
+		<Edition>Web Edition</Edition>
+		<LicenseHostID/>
+	</License>
+	<QuartusUser>
+		<AlteraUserName/>
+		<FAEContactName/>
+		<UserID>207280872386982.139997538402948</UserID>
+		<UserName>GhinY</UserName>
+		<TalkbackStatus>
+			<DateSet/>
+			<TalkbackOn>true</TalkbackOn>
+		</TalkbackStatus>
+	</QuartusUser>
+	<ProjectRevision>
+		<ProjectName>uP</ProjectName>
+		<Revision>uP</Revision>
+	</ProjectRevision>
+	<SchemaVersion>schema_2008-09-10</SchemaVersion>
+	<Compilation>
+		<CompileID>33558035198373.14486751650344</CompileID>
+		<DeviceFamily>Cyclone II</DeviceFamily>
+		<IncrementalCompilation>FULL_INCREMENTAL_COMPILATION</IncrementalCompilation>
+		<SOPCBuilderProjectID/>
+		<TopLevelEntityName>uP</TopLevelEntityName>
+	</Compilation>
+	<ApplicationError>
+		<ErrorMessage>cmp_merge_kpt_db</ErrorMessage>
+		<Line>220</Line>
+		<SourceFile>/quartus/atm/amerge/amerge_kpt_op.cpp</SourceFile>
+		<StackTrace>
+	0x0a60ba75:
+		</StackTrace>
+		<Subsystem>AMERGE</Subsystem>
+	</ApplicationError>
+	<Machine>
+		<CPUCountLogical>4</CPUCountLogical>
+		<CPUCountPhysical>1</CPUCountPhysical>
+		<CPUSpeed>1596</CPUSpeed>
+		<Hostname>EmeraldWolfram</Hostname>
+		<OS>Windows Vista</OS>
+		<OSAddressBits>64</OSAddressBits>
+		<OSVersion>6.2</OSVersion>
+		<Platform>windows</Platform>
+		<ScreenResolution>unknown</ScreenResolution>
+		<TotalPhysicalRAM>4000</TotalPhysicalRAM>
+		<TotalVirtualRAM>95</TotalVirtualRAM>
+		<NIC>
+			<Address>1e8556c471a5</Address>
+		</NIC>
+		<NIC>
+			<Address>5e8556c471a5</Address>
+		</NIC>
+		<NIC>
+			<Address>bc8556c471a5</Address>
+		</NIC>
+	</Machine>
+	<QuartusInstallation>
+		<InstallationID>207280872386982.13999628621692</InstallationID>
+		<Version>
+			<Build>163</Build>
+			<BuildSite>SJ</BuildSite>
+			<BuildSuffix/>
+			<Edition>Web Edition</Edition>
+			<ServicePack>0</ServicePack>
+			<VersionNumber>8.1</VersionNumber>
+		</Version>
+	</QuartusInstallation>
+</ProgramExecution>
+

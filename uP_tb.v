@@ -31,7 +31,8 @@ module uP_tb();
 #2	Enter	= 1;
 	$monitor("%dns, Output: 0x%h", $time, Output);
 	end
-
+	
+	uP	testUP(RESET, CLOCK, Enter, Input, Halt, Output);
 //*********************************ALL TEST TASK***************************************
 	/*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 	task comp_OUTPUT;

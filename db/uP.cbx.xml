@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="uP">
-		<CBX_INST_ENTRY INSTANCE_NAME="|uP|uP_DP:DataPath|mem_RAM:RAM_32x8|altsyncram:REGISTER_rtl_0" CBX_FILE_NAME="altsyncram_cih1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|uP|uP_DP:DataPath|mem_RAM:RAM_32x8|altsyncram:REGISTER_rtl_0" CBX_FILE_NAME="altsyncram_uaj1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

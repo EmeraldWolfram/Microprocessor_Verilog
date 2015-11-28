@@ -1,0 +1,15 @@
+<internal_error>
+	<executable>quartus_map.exe</executable>
+	<sub_system>AMERGE</sub_system>
+	<file>/quartus/atm/amerge/amerge_kpt_op.cpp</file>
+	<line>220</line>
+	<callstack>
+	0x0a60ba75:
+	</callstack>
+	<error>cmp_merge_kpt_db</error>
+	<date>Sat Nov 28 09:46:07 2015</date>
+	<version>Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition</version>
+	<full_error>cmp_merge_kpt_db
+Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition </full_error>
+</internal_error>
+
