@@ -14,7 +14,7 @@ module uP_CU(
 	parameter LOAD  = 4'b1000, STORE = 4'b1001, ADD    = 4'b1010, SUB  = 4'b1011;	//Instruction State
 	parameter INPUT = 4'b1100, JZ 	 = 4'b1101, JPOS   = 4'b1110, HALT = 4'b1111;	//Instruction State
   //************************  TO SHORTEN THE PROGRAM  ****************************
-	reg [0:7] outChain;
+	reg [7:0] outChain;
 	assign {IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub, Halt} = outChain;
   //******************************************************************************
 	always @ (posedge RESET, posedge CLOCK)
@@ -42,34 +42,34 @@ module uP_CU(
 				outChain  = 8'b00010000;
 				Asel	  = 2'b00;
 				if(!IR[7])
-				begin
+					begin
 					if(!IR[6])
-					begin
-						if(!IR[5])	nextState = LOAD;
-						else		nextState = STORE;
-					end
+						begin
+						if(!IR[5])	begin nextState = LOAD;   end
+						else		    begin nextState = STORE;  end
+						end
 					else
-					begin
-						if(!IR[5])	nextState = ADD;
-						else		nextState = SUB;
+						begin
+						if(!IR[5])	begin nextState = ADD;  end
+						else		    begin nextState = SUB;  end
+						end
 					end
-				end
 				else
-				begin
+					begin
 					if(!IR[6])
-					begin
-						if(!IR[5])	nextState = INPUT;
-						else		nextState = JZ;
-					end
+						begin
+						if(!IR[5])	begin nextState = INPUT;  end
+						else		    begin nextState = JZ;     end
+						end
 					else
-					begin
-						if(!IR[5])	nextState = JPOS;
-						else		nextState = HALT;
+						begin
+						if(!IR[5])	begin nextState = JPOS; end
+						else		    begin nextState = HALT; end
+						end
 					end
-				end
 			end
 			LOAD: begin
-				outChain = 8'b11110100;
+				outChain = 8'b00000100;
 				Asel	 = 2'b10;
 				nextState = START;
 			end
@@ -91,8 +91,8 @@ module uP_CU(
 			INPUT: begin
 				outChain = 8'b00000100;
 				Asel	 = 2'b01;
-				if(Enter)	nextState = START;
-				else		nextState = INPUT;
+				if(!Enter) begin nextState = INPUT;  end
+				else		  begin nextState = START;  end
 			end
 			JZ: begin
 				outChain = {2'b01,Aeq0,5'b00000};
@@ -112,5 +112,6 @@ module uP_CU(
 			default: nextState = START;
 		endcase
 	end
+  
 endmodule
 	

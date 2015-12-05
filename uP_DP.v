@@ -1,9 +1,9 @@
 module uP_DP(
-	input	CLOCK, RESET,
+	input	  CLOCK, RESET, Init,
 //------------EXTERNAL INPUT-----------------------
-	input	[7:0] Input,
+	input	  [7:0] Input,
 //*************Control Signals*********************
-	input	IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub,
+	input	  IRload, JMPmux, PCload, Meminst, MemWr, Aload, Sub,
 	input 	[1:0] Asel,
 //*************Status Signals**********************
 	output	Aeq0, Apos,
@@ -20,7 +20,7 @@ module uP_DP(
 	n_REG #(8)  A_REG(CLOCK,  Aload, RESET,  Mux2_to_A,  A);
 	n_REG #(5) PC_REG(CLOCK, PCload, RESET, Mux0_to_PC, PC);
 	
-	mem_RAM  RAM_32x8(CLOCK, A, Mux1_to_RAM, MemWr, RAM_to_IR);
+	mem_RAM  RAM_32x8(CLOCK, A, Mux1_to_RAM, MemWr, Init, RAM_to_IR);
 	
 	opr_ADD_SUB	ADD_SUB(A, RAM_to_IR, Sub, RESULT);
 	
