@@ -1,0 +1,334 @@
+Quartus II
+Version 9.1 Build 222 10/21/2009 SJ Web Edition
+11
+980
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+uP_DP
+# storage
+db|uP.(2).cnf
+db|uP.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+up_dp.v
+54217990198452f8acc5fb3955bcc6
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+uP_DP:DataPath
+}
+# macro_sequence
+
+# end
+# entity
+n_REG
+# storage
+db|uP.(3).cnf
+db|uP.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+n_reg.v
+a8a6d2069143d6dd4c7e64916b15282
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+n
+8
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+uP_DP:DataPath|n_REG:IR_REG
+uP_DP:DataPath|n_REG:A_REG
+}
+# macro_sequence
+
+# end
+# entity
+n_REG
+# storage
+db|uP.(4).cnf
+db|uP.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+n_reg.v
+a8a6d2069143d6dd4c7e64916b15282
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+n
+5
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+uP_DP:DataPath|n_REG:PC_REG
+}
+# macro_sequence
+
+# end
+# entity
+opr_ADD_SUB
+# storage
+db|uP.(6).cnf
+db|uP.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+opr_add_sub.v
+a226f5b6f1b5ee88385ddafb18ac0b8
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+uP_DP:DataPath|opr_ADD_SUB:ADD_SUB
+}
+# macro_sequence
+
+# end
+# entity
+uP
+# storage
+db|uP.(0).cnf
+db|uP.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+up.v
+6b7f04cb5501c6d9c6d57da3c172885
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+uP_CU
+# storage
+db|uP.(1).cnf
+db|uP.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+up_cu.v
+7c21ca562ea22751b6643212aaffea
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+START
+0000
+PARAMETER_UNSIGNED_BIN
+DEF
+FETCH
+0001
+PARAMETER_UNSIGNED_BIN
+DEF
+DECODE
+0010
+PARAMETER_UNSIGNED_BIN
+DEF
+LOAD
+1000
+PARAMETER_UNSIGNED_BIN
+DEF
+STORE
+1001
+PARAMETER_UNSIGNED_BIN
+DEF
+ADD
+1010
+PARAMETER_UNSIGNED_BIN
+DEF
+SUB
+1011
+PARAMETER_UNSIGNED_BIN
+DEF
+INPUT
+1100
+PARAMETER_UNSIGNED_BIN
+DEF
+JZ
+1101
+PARAMETER_UNSIGNED_BIN
+DEF
+JPOS
+1110
+PARAMETER_UNSIGNED_BIN
+DEF
+HALT
+1111
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+uP_CU:CtrlUnit
+}
+# macro_sequence
+
+# end
+# entity
+mem_RAM
+# storage
+db|uP.(5).cnf
+db|uP.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+mem_ram.v
+f0c18297dbc1fcc12a9b422ab88589e1
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+uP_DP:DataPath|mem_RAM:RAM_32x8
+}
+# macro_sequence
+
+# end
+# complete
+

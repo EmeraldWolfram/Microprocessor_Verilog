@@ -1,0 +1,862 @@
+Classic Timing Analyzer report for uP
+Tue Dec 08 17:34:41 2015
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'CLOCK_50'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                             ;
++------------------------------+-------+---------------+----------------------------------+----------------------------------+-------------------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                             ; To                                              ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+----------------------------------+-------------------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 4.673 ns                         ; KEY[0]                           ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][1] ; --         ; CLOCK_50 ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 16.154 ns                        ; uP_CU:CtrlUnit|state.HALT        ; LEDG[1]                                         ; CLOCK_50   ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 4.061 ns                         ; SW[1]                            ; uP_DP:DataPath|n_REG:A_REG|Q[1]                 ; --         ; CLOCK_50 ; 0            ;
+; Clock Setup: 'CLOCK_50'      ; N/A   ; None          ; 147.10 MHz ( period = 6.798 ns ) ; uP_DP:DataPath|n_REG:PC_REG|Q[3] ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50   ; CLOCK_50 ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                  ;                                                 ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+----------------------------------+-------------------------------------------------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2C20F484C7       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLOCK_50        ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLOCK_50'                                                                                                                                                                                                                                                                                       ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------------------------+-------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                            ; To                                              ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------------------------+-------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 147.10 MHz ( period = 6.798 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.550 ns                ;
+; N/A                                     ; 147.58 MHz ( period = 6.776 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.528 ns                ;
+; N/A                                     ; 147.65 MHz ( period = 6.773 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.526 ns                ;
+; N/A                                     ; 147.71 MHz ( period = 6.770 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.532 ns                ;
+; N/A                                     ; 150.58 MHz ( period = 6.641 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[0]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.406 ns                ;
+; N/A                                     ; 151.08 MHz ( period = 6.619 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[0]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.384 ns                ;
+; N/A                                     ; 151.15 MHz ( period = 6.616 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[0]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.382 ns                ;
+; N/A                                     ; 151.22 MHz ( period = 6.613 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[0]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.388 ns                ;
+; N/A                                     ; 155.09 MHz ( period = 6.448 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[1]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.198 ns                ;
+; N/A                                     ; 155.50 MHz ( period = 6.431 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[3]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.206 ns                ;
+; N/A                                     ; 155.62 MHz ( period = 6.426 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[1]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.176 ns                ;
+; N/A                                     ; 155.69 MHz ( period = 6.423 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[1]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.174 ns                ;
+; N/A                                     ; 155.76 MHz ( period = 6.420 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[1]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.180 ns                ;
+; N/A                                     ; 155.84 MHz ( period = 6.417 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[3]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.182 ns                ;
+; N/A                                     ; 155.86 MHz ( period = 6.416 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[3]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.181 ns                ;
+; N/A                                     ; 156.40 MHz ( period = 6.394 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[3]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.159 ns                ;
+; N/A                                     ; 156.47 MHz ( period = 6.391 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[3]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.157 ns                ;
+; N/A                                     ; 157.31 MHz ( period = 6.357 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[5]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.125 ns                ;
+; N/A                                     ; 157.63 MHz ( period = 6.344 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[1]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.094 ns                ;
+; N/A                                     ; 157.70 MHz ( period = 6.341 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[5]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.109 ns                ;
+; N/A                                     ; 157.78 MHz ( period = 6.338 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.100 ns                ;
+; N/A                                     ; 157.78 MHz ( period = 6.338 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.100 ns                ;
+; N/A                                     ; 157.78 MHz ( period = 6.338 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.100 ns                ;
+; N/A                                     ; 157.78 MHz ( period = 6.338 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.100 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[5]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.102 ns                ;
+; N/A                                     ; 157.95 MHz ( period = 6.331 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[5]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.109 ns                ;
+; N/A                                     ; 158.18 MHz ( period = 6.322 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.084 ns                ;
+; N/A                                     ; 158.18 MHz ( period = 6.322 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.084 ns                ;
+; N/A                                     ; 159.24 MHz ( period = 6.280 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[2]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.055 ns                ;
+; N/A                                     ; 159.54 MHz ( period = 6.268 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[3]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.033 ns                ;
+; N/A                                     ; 159.57 MHz ( period = 6.267 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[0]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.032 ns                ;
+; N/A                                     ; 159.59 MHz ( period = 6.266 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[2]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.031 ns                ;
+; N/A                                     ; 160.00 MHz ( period = 6.250 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[1]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 160.08 MHz ( period = 6.247 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.008 ns                ;
+; N/A                                     ; 160.08 MHz ( period = 6.247 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.008 ns                ;
+; N/A                                     ; 160.08 MHz ( period = 6.247 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.008 ns                ;
+; N/A                                     ; 160.08 MHz ( period = 6.247 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.008 ns                ;
+; N/A                                     ; 160.08 MHz ( period = 6.247 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.008 ns                ;
+; N/A                                     ; 160.08 MHz ( period = 6.247 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.008 ns                ;
+; N/A                                     ; 160.08 MHz ( period = 6.247 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.008 ns                ;
+; N/A                                     ; 160.08 MHz ( period = 6.247 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.008 ns                ;
+; N/A                                     ; 160.15 MHz ( period = 6.244 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[3]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.010 ns                ;
+; N/A                                     ; 160.31 MHz ( period = 6.238 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[4]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.990 ns                ;
+; N/A                                     ; 160.57 MHz ( period = 6.228 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.979 ns                ;
+; N/A                                     ; 160.59 MHz ( period = 6.227 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[4]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.980 ns                ;
+; N/A                                     ; 160.62 MHz ( period = 6.226 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[1]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.977 ns                ;
+; N/A                                     ; 160.67 MHz ( period = 6.224 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[7]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.976 ns                ;
+; N/A                                     ; 160.75 MHz ( period = 6.221 ns )                    ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][6]  ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.972 ns                ;
+; N/A                                     ; 160.77 MHz ( period = 6.220 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.971 ns                ;
+; N/A                                     ; 160.77 MHz ( period = 6.220 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.981 ns                ;
+; N/A                                     ; 160.98 MHz ( period = 6.212 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[3]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.978 ns                ;
+; N/A                                     ; 161.13 MHz ( period = 6.206 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.957 ns                ;
+; N/A                                     ; 161.21 MHz ( period = 6.203 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.955 ns                ;
+; N/A                                     ; 161.24 MHz ( period = 6.202 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[7]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.954 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[7]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.952 ns                ;
+; N/A                                     ; 161.39 MHz ( period = 6.196 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[7]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.958 ns                ;
+; N/A                                     ; 162.28 MHz ( period = 6.162 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[7]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.914 ns                ;
+; N/A                                     ; 162.89 MHz ( period = 6.139 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[1]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.890 ns                ;
+; N/A                                     ; 162.92 MHz ( period = 6.138 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[7]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.891 ns                ;
+; N/A                                     ; 163.11 MHz ( period = 6.131 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.902 ns                ;
+; N/A                                     ; 163.11 MHz ( period = 6.131 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.902 ns                ;
+; N/A                                     ; 163.11 MHz ( period = 6.131 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.902 ns                ;
+; N/A                                     ; 163.11 MHz ( period = 6.131 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.902 ns                ;
+; N/A                                     ; 163.11 MHz ( period = 6.131 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.902 ns                ;
+; N/A                                     ; 163.11 MHz ( period = 6.131 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.902 ns                ;
+; N/A                                     ; 163.11 MHz ( period = 6.131 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.902 ns                ;
+; N/A                                     ; 163.11 MHz ( period = 6.131 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.902 ns                ;
+; N/A                                     ; 163.64 MHz ( period = 6.111 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[2]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.876 ns                ;
+; N/A                                     ; 163.91 MHz ( period = 6.101 ns )                    ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][0]  ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[0]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.884 ns                ;
+; N/A                                     ; 164.07 MHz ( period = 6.095 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[2]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.860 ns                ;
+; N/A                                     ; 164.10 MHz ( period = 6.094 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.866 ns                ;
+; N/A                                     ; 164.10 MHz ( period = 6.094 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.866 ns                ;
+; N/A                                     ; 164.28 MHz ( period = 6.087 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[2]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.853 ns                ;
+; N/A                                     ; 164.47 MHz ( period = 6.080 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.842 ns                ;
+; N/A                                     ; 164.47 MHz ( period = 6.080 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.842 ns                ;
+; N/A                                     ; 164.61 MHz ( period = 6.075 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.833 ns                ;
+; N/A                                     ; 164.61 MHz ( period = 6.075 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.833 ns                ;
+; N/A                                     ; 164.61 MHz ( period = 6.075 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.833 ns                ;
+; N/A                                     ; 164.61 MHz ( period = 6.075 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.833 ns                ;
+; N/A                                     ; 164.61 MHz ( period = 6.075 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.833 ns                ;
+; N/A                                     ; 164.61 MHz ( period = 6.075 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.833 ns                ;
+; N/A                                     ; 164.61 MHz ( period = 6.075 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.833 ns                ;
+; N/A                                     ; 164.61 MHz ( period = 6.075 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.833 ns                ;
+; N/A                                     ; 164.96 MHz ( period = 6.062 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[0]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.828 ns                ;
+; N/A                                     ; 164.99 MHz ( period = 6.061 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[2]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.827 ns                ;
+; N/A                                     ; 165.07 MHz ( period = 6.058 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.816 ns                ;
+; N/A                                     ; 165.07 MHz ( period = 6.058 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.816 ns                ;
+; N/A                                     ; 165.07 MHz ( period = 6.058 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.816 ns                ;
+; N/A                                     ; 165.07 MHz ( period = 6.058 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.816 ns                ;
+; N/A                                     ; 165.07 MHz ( period = 6.058 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.816 ns                ;
+; N/A                                     ; 165.07 MHz ( period = 6.058 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.816 ns                ;
+; N/A                                     ; 165.07 MHz ( period = 6.058 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.816 ns                ;
+; N/A                                     ; 165.07 MHz ( period = 6.058 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.816 ns                ;
+; N/A                                     ; 165.32 MHz ( period = 6.049 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.811 ns                ;
+; N/A                                     ; 165.32 MHz ( period = 6.049 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.811 ns                ;
+; N/A                                     ; 165.32 MHz ( period = 6.049 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.811 ns                ;
+; N/A                                     ; 165.32 MHz ( period = 6.049 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.811 ns                ;
+; N/A                                     ; 165.51 MHz ( period = 6.042 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.804 ns                ;
+; N/A                                     ; 165.51 MHz ( period = 6.042 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.804 ns                ;
+; N/A                                     ; 165.70 MHz ( period = 6.035 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.807 ns                ;
+; N/A                                     ; 165.70 MHz ( period = 6.035 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.807 ns                ;
+; N/A                                     ; 165.70 MHz ( period = 6.035 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.807 ns                ;
+; N/A                                     ; 165.70 MHz ( period = 6.035 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.807 ns                ;
+; N/A                                     ; 166.00 MHz ( period = 6.024 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.787 ns                ;
+; N/A                                     ; 166.00 MHz ( period = 6.024 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.787 ns                ;
+; N/A                                     ; 166.00 MHz ( period = 6.024 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.787 ns                ;
+; N/A                                     ; 166.00 MHz ( period = 6.024 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.787 ns                ;
+; N/A                                     ; 166.17 MHz ( period = 6.018 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.781 ns                ;
+; N/A                                     ; 166.17 MHz ( period = 6.018 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.781 ns                ;
+; N/A                                     ; 166.47 MHz ( period = 6.007 ns )                    ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][4]  ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.759 ns                ;
+; N/A                                     ; 166.58 MHz ( period = 6.003 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.774 ns                ;
+; N/A                                     ; 166.58 MHz ( period = 6.003 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.774 ns                ;
+; N/A                                     ; 166.58 MHz ( period = 6.003 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.774 ns                ;
+; N/A                                     ; 166.58 MHz ( period = 6.003 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.774 ns                ;
+; N/A                                     ; 166.58 MHz ( period = 6.003 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.774 ns                ;
+; N/A                                     ; 166.58 MHz ( period = 6.003 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.774 ns                ;
+; N/A                                     ; 166.58 MHz ( period = 6.003 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.774 ns                ;
+; N/A                                     ; 166.58 MHz ( period = 6.003 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.774 ns                ;
+; N/A                                     ; 166.64 MHz ( period = 6.001 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.753 ns                ;
+; N/A                                     ; 166.83 MHz ( period = 5.994 ns )                    ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][3]  ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[3]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.00 MHz ( period = 5.988 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.00 MHz ( period = 5.988 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.00 MHz ( period = 5.988 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.00 MHz ( period = 5.988 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.03 MHz ( period = 5.987 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[4]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.738 ns                ;
+; N/A                                     ; 167.28 MHz ( period = 5.978 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.28 MHz ( period = 5.978 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.28 MHz ( period = 5.978 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.28 MHz ( period = 5.978 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.28 MHz ( period = 5.978 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.28 MHz ( period = 5.978 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.28 MHz ( period = 5.978 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.28 MHz ( period = 5.978 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.750 ns                ;
+; N/A                                     ; 167.34 MHz ( period = 5.976 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[4]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.728 ns                ;
+; N/A                                     ; 167.36 MHz ( period = 5.975 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.756 ns                ;
+; N/A                                     ; 167.36 MHz ( period = 5.975 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.756 ns                ;
+; N/A                                     ; 167.36 MHz ( period = 5.975 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.756 ns                ;
+; N/A                                     ; 167.36 MHz ( period = 5.975 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.756 ns                ;
+; N/A                                     ; 167.36 MHz ( period = 5.975 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.756 ns                ;
+; N/A                                     ; 167.36 MHz ( period = 5.975 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.756 ns                ;
+; N/A                                     ; 167.36 MHz ( period = 5.975 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.756 ns                ;
+; N/A                                     ; 167.36 MHz ( period = 5.975 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.756 ns                ;
+; N/A                                     ; 167.45 MHz ( period = 5.972 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.734 ns                ;
+; N/A                                     ; 167.45 MHz ( period = 5.972 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.734 ns                ;
+; N/A                                     ; 167.62 MHz ( period = 5.966 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][0]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.726 ns                ;
+; N/A                                     ; 167.62 MHz ( period = 5.966 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][7]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.726 ns                ;
+; N/A                                     ; 167.62 MHz ( period = 5.966 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][6]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.726 ns                ;
+; N/A                                     ; 167.62 MHz ( period = 5.966 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][5]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.726 ns                ;
+; N/A                                     ; 167.62 MHz ( period = 5.966 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][1]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.726 ns                ;
+; N/A                                     ; 167.62 MHz ( period = 5.966 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][4]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.726 ns                ;
+; N/A                                     ; 167.62 MHz ( period = 5.966 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][3]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.726 ns                ;
+; N/A                                     ; 167.62 MHz ( period = 5.966 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][2]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.726 ns                ;
+; N/A                                     ; 167.76 MHz ( period = 5.961 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[5]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.729 ns                ;
+; N/A                                     ; 167.81 MHz ( period = 5.959 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.710 ns                ;
+; N/A                                     ; 168.18 MHz ( period = 5.946 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.698 ns                ;
+; N/A                                     ; 168.24 MHz ( period = 5.944 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.715 ns                ;
+; N/A                                     ; 168.24 MHz ( period = 5.944 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.715 ns                ;
+; N/A                                     ; 168.24 MHz ( period = 5.944 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.715 ns                ;
+; N/A                                     ; 168.24 MHz ( period = 5.944 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.715 ns                ;
+; N/A                                     ; 168.24 MHz ( period = 5.944 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.715 ns                ;
+; N/A                                     ; 168.24 MHz ( period = 5.944 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.715 ns                ;
+; N/A                                     ; 168.24 MHz ( period = 5.944 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.715 ns                ;
+; N/A                                     ; 168.24 MHz ( period = 5.944 ns )                    ; uP_CU:CtrlUnit|state.DECODE                     ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.715 ns                ;
+; N/A                                     ; 168.49 MHz ( period = 5.935 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.687 ns                ;
+; N/A                                     ; 168.80 MHz ( period = 5.924 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[5]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.692 ns                ;
+; N/A                                     ; 168.80 MHz ( period = 5.924 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.685 ns                ;
+; N/A                                     ; 168.80 MHz ( period = 5.924 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.685 ns                ;
+; N/A                                     ; 168.80 MHz ( period = 5.924 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.685 ns                ;
+; N/A                                     ; 168.80 MHz ( period = 5.924 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.685 ns                ;
+; N/A                                     ; 168.80 MHz ( period = 5.924 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.685 ns                ;
+; N/A                                     ; 168.80 MHz ( period = 5.924 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.685 ns                ;
+; N/A                                     ; 168.80 MHz ( period = 5.924 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.685 ns                ;
+; N/A                                     ; 168.80 MHz ( period = 5.924 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.685 ns                ;
+; N/A                                     ; 168.86 MHz ( period = 5.922 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[1]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.675 ns                ;
+; N/A                                     ; 169.15 MHz ( period = 5.912 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[7]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.664 ns                ;
+; N/A                                     ; 169.26 MHz ( period = 5.908 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.670 ns                ;
+; N/A                                     ; 169.26 MHz ( period = 5.908 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.670 ns                ;
+; N/A                                     ; 169.32 MHz ( period = 5.906 ns )                    ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[0]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.678 ns                ;
+; N/A                                     ; 169.43 MHz ( period = 5.902 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.673 ns                ;
+; N/A                                     ; 169.43 MHz ( period = 5.902 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.673 ns                ;
+; N/A                                     ; 169.43 MHz ( period = 5.902 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.673 ns                ;
+; N/A                                     ; 169.43 MHz ( period = 5.902 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.673 ns                ;
+; N/A                                     ; 169.43 MHz ( period = 5.902 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.673 ns                ;
+; N/A                                     ; 169.43 MHz ( period = 5.902 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.673 ns                ;
+; N/A                                     ; 169.43 MHz ( period = 5.902 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.673 ns                ;
+; N/A                                     ; 169.43 MHz ( period = 5.902 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.673 ns                ;
+; N/A                                     ; 169.52 MHz ( period = 5.899 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[5]            ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.668 ns                ;
+; N/A                                     ; 169.58 MHz ( period = 5.897 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.658 ns                ;
+; N/A                                     ; 169.58 MHz ( period = 5.897 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.658 ns                ;
+; N/A                                     ; 169.58 MHz ( period = 5.897 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.658 ns                ;
+; N/A                                     ; 169.58 MHz ( period = 5.897 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.658 ns                ;
+; N/A                                     ; 169.58 MHz ( period = 5.897 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.658 ns                ;
+; N/A                                     ; 169.58 MHz ( period = 5.897 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.658 ns                ;
+; N/A                                     ; 169.58 MHz ( period = 5.897 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.658 ns                ;
+; N/A                                     ; 169.58 MHz ( period = 5.897 ns )                    ; uP_DP:DataPath|n_REG:PC_REG|Q[0]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.658 ns                ;
+; N/A                                     ; 169.98 MHz ( period = 5.883 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.646 ns                ;
+; N/A                                     ; 169.98 MHz ( period = 5.883 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[3]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.646 ns                ;
+; N/A                                     ; 170.21 MHz ( period = 5.875 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.638 ns                ;
+; N/A                                     ; 170.21 MHz ( period = 5.875 ns )                    ; uP_DP:DataPath|n_REG:IR_REG|Q[2]                ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.638 ns                ;
+; N/A                                     ; 170.24 MHz ( period = 5.874 ns )                    ; uP_CU:CtrlUnit|state.STORE                      ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.628 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                                 ;                                                 ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------------------------+-------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                                              ;
++-----------------------------------------+-----------------------------------------------------+------------+--------+-------------------------------------------------+----------+
+; Slack                                   ; Required tsu                                        ; Actual tsu ; From   ; To                                              ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+--------+-------------------------------------------------+----------+
+; N/A                                     ; None                                                ; 4.673 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 4.356 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 4.355 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 4.302 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 4.302 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 4.022 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 4.021 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 4.010 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 4.009 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.988 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.980 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.979 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.726 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.725 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.709 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.706 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.643 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.595 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.567 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.559 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.556 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.548 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.547 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.519 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.516 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.506 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[0]            ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.506 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[3]            ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.506 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[2]            ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.427 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.424 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.368 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.368 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.365 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.363 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.357 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.357 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.357 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.357 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.357 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.357 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.357 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.357 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[28][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.348 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.331 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.330 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.296 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.294 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.272 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[5]            ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.231 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[6]            ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.221 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]            ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.216 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[7]            ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.157 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.156 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.139 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.139 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.139 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.139 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.135 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.131 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.128 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.128 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.128 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.128 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.122 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.121 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.116 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.104 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.099 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.083 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.080 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.080 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.075 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.075 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.075 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.075 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.075 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.075 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.075 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.068 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.049 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.049 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.049 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.049 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.049 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.039 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.039 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.039 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.039 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.030 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.012 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.009 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.005 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.003 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.002 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.000 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.970 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.970 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.970 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.970 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.970 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.967 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.967 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.967 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.963 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.954 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.954 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.954 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.935 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|Q[1]            ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.903 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.903 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.903 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.891 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.888 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.888 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.886 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.867 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.837 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.835 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.827 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.825 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.825 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.825 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.825 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.823 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.807 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.807 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.807 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.800 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.800 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.800 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.800 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.800 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.800 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.800 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.800 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[23][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.790 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.790 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.790 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.786 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[20][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.786 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[20][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.786 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[20][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.786 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[20][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.786 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[20][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.786 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[20][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.786 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[20][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.786 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[20][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.775 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.775 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.775 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.775 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.775 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.775 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.775 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.775 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.761 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.756 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.736 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.736 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.722 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.713 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.709 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.701 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.695 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.695 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.695 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.695 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.695 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.692 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.692 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.692 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.692 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.692 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.692 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.692 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.692 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.691 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.673 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.673 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.673 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.652 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.651 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.641 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.641 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.641 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.641 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.641 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.633 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.632 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.574 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.574 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.573 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.568 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.568 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.568 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.568 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.568 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.568 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.568 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.568 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 2.539 ns   ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[27][0] ; CLOCK_50 ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;        ;                                                 ;          ;
++-----------------------------------------+-----------------------------------------------------+------------+--------+-------------------------------------------------+----------+
+
+
++--------------------------------------------------------------------------------------------+
+; tco                                                                                        ;
++-------+--------------+------------+---------------------------------+---------+------------+
+; Slack ; Required tco ; Actual tco ; From                            ; To      ; From Clock ;
++-------+--------------+------------+---------------------------------+---------+------------+
+; N/A   ; None         ; 16.154 ns  ; uP_CU:CtrlUnit|state.HALT       ; LEDG[1] ; CLOCK_50   ;
+; N/A   ; None         ; 16.086 ns  ; uP_CU:CtrlUnit|state.HALT       ; LEDG[0] ; CLOCK_50   ;
+; N/A   ; None         ; 15.378 ns  ; uP_CU:CtrlUnit|state.INPUT      ; LEDG[2] ; CLOCK_50   ;
+; N/A   ; None         ; 15.353 ns  ; uP_CU:CtrlUnit|state.HALT       ; LEDG[2] ; CLOCK_50   ;
+; N/A   ; None         ; 15.336 ns  ; uP_CU:CtrlUnit|state.STORE      ; LEDG[0] ; CLOCK_50   ;
+; N/A   ; None         ; 14.942 ns  ; uP_CU:CtrlUnit|state.SUB        ; LEDG[1] ; CLOCK_50   ;
+; N/A   ; None         ; 14.874 ns  ; uP_CU:CtrlUnit|state.SUB        ; LEDG[0] ; CLOCK_50   ;
+; N/A   ; None         ; 14.700 ns  ; uP_CU:CtrlUnit|state.ADD        ; LEDG[1] ; CLOCK_50   ;
+; N/A   ; None         ; 14.684 ns  ; uP_CU:CtrlUnit|state.DECODE     ; LEDG[1] ; CLOCK_50   ;
+; N/A   ; None         ; 14.413 ns  ; uP_CU:CtrlUnit|state.JPOS       ; LEDG[2] ; CLOCK_50   ;
+; N/A   ; None         ; 14.380 ns  ; uP_CU:CtrlUnit|state.JPOS       ; LEDG[1] ; CLOCK_50   ;
+; N/A   ; None         ; 14.125 ns  ; uP_DP:DataPath|n_REG:A_REG|Q[4] ; LEDR[4] ; CLOCK_50   ;
+; N/A   ; None         ; 14.114 ns  ; uP_CU:CtrlUnit|state.FETCH      ; LEDG[0] ; CLOCK_50   ;
+; N/A   ; None         ; 14.057 ns  ; uP_CU:CtrlUnit|state.JZ         ; LEDG[0] ; CLOCK_50   ;
+; N/A   ; None         ; 14.054 ns  ; uP_CU:CtrlUnit|state.JZ         ; LEDG[2] ; CLOCK_50   ;
+; N/A   ; None         ; 13.770 ns  ; uP_DP:DataPath|n_REG:A_REG|Q[3] ; LEDR[3] ; CLOCK_50   ;
+; N/A   ; None         ; 13.642 ns  ; uP_CU:CtrlUnit|state.FETCH      ; LEDG[3] ; CLOCK_50   ;
+; N/A   ; None         ; 13.622 ns  ; uP_DP:DataPath|n_REG:A_REG|Q[2] ; LEDR[2] ; CLOCK_50   ;
+; N/A   ; None         ; 13.388 ns  ; uP_DP:DataPath|n_REG:A_REG|Q[6] ; LEDR[6] ; CLOCK_50   ;
+; N/A   ; None         ; 13.375 ns  ; uP_CU:CtrlUnit|state.START      ; LEDG[3] ; CLOCK_50   ;
+; N/A   ; None         ; 13.281 ns  ; uP_CU:CtrlUnit|state.HALT       ; LEDG[4] ; CLOCK_50   ;
+; N/A   ; None         ; 13.072 ns  ; uP_DP:DataPath|n_REG:A_REG|Q[1] ; LEDR[1] ; CLOCK_50   ;
+; N/A   ; None         ; 12.919 ns  ; uP_DP:DataPath|n_REG:A_REG|Q[0] ; LEDR[0] ; CLOCK_50   ;
+; N/A   ; None         ; 12.761 ns  ; uP_DP:DataPath|n_REG:A_REG|Q[5] ; LEDR[5] ; CLOCK_50   ;
+; N/A   ; None         ; 12.603 ns  ; uP_CU:CtrlUnit|state.DECODE     ; LEDG[3] ; CLOCK_50   ;
+; N/A   ; None         ; 12.575 ns  ; uP_DP:DataPath|n_REG:A_REG|Q[7] ; LEDR[7] ; CLOCK_50   ;
++-------+--------------+------------+---------------------------------+---------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                                              ;
++-----------------------------------------+-----------------------------------------------------+-----------+--------+-------------------------------------------------+----------+
+; Minimum Slack                           ; Required th                                         ; Actual th ; From   ; To                                              ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+-----------+--------+-------------------------------------------------+----------+
+; N/A                                     ; None                                                ; 4.061 ns  ; SW[1]  ; uP_DP:DataPath|n_REG:A_REG|Q[1]                 ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.695 ns  ; SW[6]  ; uP_DP:DataPath|n_REG:A_REG|Q[6]                 ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.425 ns  ; SW[4]  ; uP_DP:DataPath|n_REG:A_REG|Q[4]                 ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.376 ns  ; SW[5]  ; uP_DP:DataPath|n_REG:A_REG|Q[5]                 ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.304 ns  ; SW[7]  ; uP_DP:DataPath|n_REG:A_REG|Q[7]                 ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.248 ns  ; SW[0]  ; uP_DP:DataPath|n_REG:A_REG|Q[0]                 ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.169 ns  ; SW[2]  ; uP_DP:DataPath|n_REG:A_REG|Q[2]                 ; CLOCK_50 ;
+; N/A                                     ; None                                                ; 3.016 ns  ; SW[3]  ; uP_DP:DataPath|n_REG:A_REG|Q[3]                 ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.450 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.452 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.552 ns ; KEY[2] ; uP_CU:CtrlUnit|state.START                      ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.554 ns ; KEY[2] ; uP_CU:CtrlUnit|state.INPUT                      ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.775 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.777 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.874 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.914 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.914 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.935 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.974 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -0.974 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.065 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.181 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.186 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.301 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.394 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.424 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.576 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[25][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.586 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.621 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.659 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.725 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.754 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[25][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.755 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.778 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.778 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.778 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.778 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.778 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.778 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.778 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.778 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[5][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.808 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.808 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.808 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.808 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.808 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.808 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.808 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.808 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.808 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.849 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[21][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.849 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[21][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.849 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[21][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.849 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[21][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.849 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[21][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.849 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[21][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.849 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[21][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.849 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[21][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.890 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.923 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.940 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.942 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.950 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.950 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.953 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.954 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.954 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.954 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.954 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.954 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.954 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[8][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.961 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.964 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.976 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.978 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.993 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.995 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -1.995 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.016 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.035 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.040 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[18][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.040 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[18][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.040 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[18][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.040 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[18][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.040 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[18][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.040 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[18][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.040 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[18][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.040 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[18][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.055 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.057 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.058 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.074 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.082 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[9][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.099 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.104 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.105 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][6]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.106 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[26][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.106 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[26][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.106 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[26][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.106 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[26][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.106 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[26][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.106 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[26][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.106 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[26][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.106 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[26][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.113 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.138 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[7][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.141 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[15][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.149 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.181 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.184 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.184 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.187 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][0]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.187 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.187 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.187 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.187 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.187 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[3][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.193 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[19][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.193 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[19][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.193 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[19][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.193 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[19][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.193 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[19][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.193 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[19][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.193 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[19][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.193 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[19][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.196 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[25][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.196 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[25][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.196 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.196 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[25][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.196 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[25][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.196 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[25][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.196 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[25][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.203 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.224 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.224 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.224 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.224 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.224 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.224 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.224 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[17][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.232 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.232 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.233 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.233 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.233 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.239 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.239 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.239 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.243 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.251 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[14][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.254 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.274 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.291 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[27][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.291 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[27][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.291 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[27][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.291 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[27][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.291 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[27][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.291 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[27][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.291 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[27][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.291 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[27][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.297 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.320 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.320 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.320 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.320 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.320 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.320 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.320 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.320 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[29][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.322 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[2][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.326 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.393 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.393 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.393 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[31][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.398 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[30][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.413 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[4][7]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.415 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[11][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.425 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][5]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.425 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][1]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.425 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.425 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][3]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.425 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[1][2]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.444 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.444 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.444 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.444 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][5] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.444 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][1] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.444 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][4] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.444 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][3] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.444 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[22][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.447 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.447 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[10][2] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.453 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[12][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.466 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[0][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.473 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][6] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.514 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[13][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.515 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[6][4]  ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.527 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][0] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.527 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][7] ; CLOCK_50 ;
+; N/A                                     ; None                                                ; -2.527 ns ; KEY[0] ; uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[24][6] ; CLOCK_50 ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;           ;        ;                                                 ;          ;
++-----------------------------------------+-----------------------------------------------------+-----------+--------+-------------------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Tue Dec 08 17:34:41 2015
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off uP -c uP --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLOCK_50" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "TimingCircuits:comb_3|outX[0]" as buffer
+Info: Clock "CLOCK_50" has Internal fmax of 147.1 MHz between source register "uP_DP:DataPath|n_REG:PC_REG|Q[3]" and destination register "uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]" (period= 6.798 ns)
+    Info: + Longest register to register delay is 6.550 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X33_Y21_N25; Fanout = 3; REG Node = 'uP_DP:DataPath|n_REG:PC_REG|Q[3]'
+        Info: 2: + IC(0.870 ns) + CELL(0.322 ns) = 1.192 ns; Loc. = LCCOMB_X32_Y21_N6; Fanout = 74; COMB Node = 'uP_DP:DataPath|Mux1_to_RAM[3]~3'
+        Info: 3: + IC(0.620 ns) + CELL(0.544 ns) = 2.356 ns; Loc. = LCCOMB_X31_Y21_N16; Fanout = 1; COMB Node = 'uP_DP:DataPath|mem_RAM:RAM_32x8|Mux3~2'
+        Info: 4: + IC(0.808 ns) + CELL(0.178 ns) = 3.342 ns; Loc. = LCCOMB_X29_Y21_N8; Fanout = 1; COMB Node = 'uP_DP:DataPath|mem_RAM:RAM_32x8|Mux3~3'
+        Info: 5: + IC(1.165 ns) + CELL(0.178 ns) = 4.685 ns; Loc. = LCCOMB_X33_Y19_N20; Fanout = 1; COMB Node = 'uP_DP:DataPath|mem_RAM:RAM_32x8|Mux3~6'
+        Info: 6: + IC(0.295 ns) + CELL(0.319 ns) = 5.299 ns; Loc. = LCCOMB_X33_Y19_N6; Fanout = 1; COMB Node = 'uP_DP:DataPath|mem_RAM:RAM_32x8|Mux3~9'
+        Info: 7: + IC(0.836 ns) + CELL(0.319 ns) = 6.454 ns; Loc. = LCCOMB_X34_Y18_N0; Fanout = 1; COMB Node = 'uP_DP:DataPath|mem_RAM:RAM_32x8|Mux3~20'
+        Info: 8: + IC(0.000 ns) + CELL(0.096 ns) = 6.550 ns; Loc. = LCFF_X34_Y18_N1; Fanout = 3; REG Node = 'uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]'
+        Info: Total cell delay = 1.956 ns ( 29.86 % )
+        Info: Total interconnect delay = 4.594 ns ( 70.14 % )
+    Info: - Smallest clock skew is -0.009 ns
+        Info: + Shortest clock path from clock "CLOCK_50" to destination register is 6.749 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+            Info: 2: + IC(1.772 ns) + CELL(0.879 ns) = 3.677 ns; Loc. = LCFF_X39_Y14_N29; Fanout = 2; REG Node = 'TimingCircuits:comb_3|outX[0]'
+            Info: 3: + IC(1.490 ns) + CELL(0.000 ns) = 5.167 ns; Loc. = CLKCTRL_G5; Fanout = 296; COMB Node = 'TimingCircuits:comb_3|outX[0]~clkctrl'
+            Info: 4: + IC(0.980 ns) + CELL(0.602 ns) = 6.749 ns; Loc. = LCFF_X34_Y18_N1; Fanout = 3; REG Node = 'uP_DP:DataPath|mem_RAM:RAM_32x8|Q[4]'
+            Info: Total cell delay = 2.507 ns ( 37.15 % )
+            Info: Total interconnect delay = 4.242 ns ( 62.85 % )
+        Info: - Longest clock path from clock "CLOCK_50" to source register is 6.758 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+            Info: 2: + IC(1.772 ns) + CELL(0.879 ns) = 3.677 ns; Loc. = LCFF_X39_Y14_N29; Fanout = 2; REG Node = 'TimingCircuits:comb_3|outX[0]'
+            Info: 3: + IC(1.490 ns) + CELL(0.000 ns) = 5.167 ns; Loc. = CLKCTRL_G5; Fanout = 296; COMB Node = 'TimingCircuits:comb_3|outX[0]~clkctrl'
+            Info: 4: + IC(0.989 ns) + CELL(0.602 ns) = 6.758 ns; Loc. = LCFF_X33_Y21_N25; Fanout = 3; REG Node = 'uP_DP:DataPath|n_REG:PC_REG|Q[3]'
+            Info: Total cell delay = 2.507 ns ( 37.10 % )
+            Info: Total interconnect delay = 4.251 ns ( 62.90 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Micro setup delay of destination is -0.038 ns
+Info: tsu for register "uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][1]" (data pin = "KEY[0]", clock pin = "CLOCK_50") is 4.673 ns
+    Info: + Longest pin to register delay is 11.462 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_R22; Fanout = 49; PIN Node = 'KEY[0]'
+        Info: 2: + IC(6.945 ns) + CELL(0.545 ns) = 8.354 ns; Loc. = LCCOMB_X32_Y19_N14; Fanout = 12; COMB Node = 'uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER~34'
+        Info: 3: + IC(2.695 ns) + CELL(0.413 ns) = 11.462 ns; Loc. = LCFF_X33_Y20_N29; Fanout = 1; REG Node = 'uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][1]'
+        Info: Total cell delay = 1.822 ns ( 15.90 % )
+        Info: Total interconnect delay = 9.640 ns ( 84.10 % )
+    Info: + Micro setup delay of destination is -0.038 ns
+    Info: - Shortest clock path from clock "CLOCK_50" to destination register is 6.751 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+        Info: 2: + IC(1.772 ns) + CELL(0.879 ns) = 3.677 ns; Loc. = LCFF_X39_Y14_N29; Fanout = 2; REG Node = 'TimingCircuits:comb_3|outX[0]'
+        Info: 3: + IC(1.490 ns) + CELL(0.000 ns) = 5.167 ns; Loc. = CLKCTRL_G5; Fanout = 296; COMB Node = 'TimingCircuits:comb_3|outX[0]~clkctrl'
+        Info: 4: + IC(0.982 ns) + CELL(0.602 ns) = 6.751 ns; Loc. = LCFF_X33_Y20_N29; Fanout = 1; REG Node = 'uP_DP:DataPath|mem_RAM:RAM_32x8|REGISTER[16][1]'
+        Info: Total cell delay = 2.507 ns ( 37.14 % )
+        Info: Total interconnect delay = 4.244 ns ( 62.86 % )
+Info: tco from clock "CLOCK_50" to destination pin "LEDG[1]" through register "uP_CU:CtrlUnit|state.HALT" is 16.154 ns
+    Info: + Longest clock path from clock "CLOCK_50" to source register is 6.758 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+        Info: 2: + IC(1.772 ns) + CELL(0.879 ns) = 3.677 ns; Loc. = LCFF_X39_Y14_N29; Fanout = 2; REG Node = 'TimingCircuits:comb_3|outX[0]'
+        Info: 3: + IC(1.490 ns) + CELL(0.000 ns) = 5.167 ns; Loc. = CLKCTRL_G5; Fanout = 296; COMB Node = 'TimingCircuits:comb_3|outX[0]~clkctrl'
+        Info: 4: + IC(0.989 ns) + CELL(0.602 ns) = 6.758 ns; Loc. = LCFF_X33_Y21_N1; Fanout = 5; REG Node = 'uP_CU:CtrlUnit|state.HALT'
+        Info: Total cell delay = 2.507 ns ( 37.10 % )
+        Info: Total interconnect delay = 4.251 ns ( 62.90 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Longest register to pin delay is 9.119 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X33_Y21_N1; Fanout = 5; REG Node = 'uP_CU:CtrlUnit|state.HALT'
+        Info: 2: + IC(1.937 ns) + CELL(0.461 ns) = 2.398 ns; Loc. = LCCOMB_X34_Y18_N16; Fanout = 2; COMB Node = 'uP_CU:CtrlUnit|WideOr8~0'
+        Info: 3: + IC(0.818 ns) + CELL(0.319 ns) = 3.535 ns; Loc. = LCCOMB_X34_Y18_N4; Fanout = 1; COMB Node = 'uP_CU:CtrlUnit|WideOr8'
+        Info: 4: + IC(2.734 ns) + CELL(2.850 ns) = 9.119 ns; Loc. = PIN_U21; Fanout = 0; PIN Node = 'LEDG[1]'
+        Info: Total cell delay = 3.630 ns ( 39.81 % )
+        Info: Total interconnect delay = 5.489 ns ( 60.19 % )
+Info: th for register "uP_DP:DataPath|n_REG:A_REG|Q[1]" (data pin = "SW[1]", clock pin = "CLOCK_50") is 4.061 ns
+    Info: + Longest clock path from clock "CLOCK_50" to destination register is 6.747 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+        Info: 2: + IC(1.772 ns) + CELL(0.879 ns) = 3.677 ns; Loc. = LCFF_X39_Y14_N29; Fanout = 2; REG Node = 'TimingCircuits:comb_3|outX[0]'
+        Info: 3: + IC(1.490 ns) + CELL(0.000 ns) = 5.167 ns; Loc. = CLKCTRL_G5; Fanout = 296; COMB Node = 'TimingCircuits:comb_3|outX[0]~clkctrl'
+        Info: 4: + IC(0.978 ns) + CELL(0.602 ns) = 6.747 ns; Loc. = LCFF_X31_Y18_N9; Fanout = 18; REG Node = 'uP_DP:DataPath|n_REG:A_REG|Q[1]'
+        Info: Total cell delay = 2.507 ns ( 37.16 % )
+        Info: Total interconnect delay = 4.240 ns ( 62.84 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+    Info: - Shortest pin to register delay is 2.972 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L21; Fanout = 1; PIN Node = 'SW[1]'
+        Info: 2: + IC(1.306 ns) + CELL(0.544 ns) = 2.876 ns; Loc. = LCCOMB_X31_Y18_N8; Fanout = 1; COMB Node = 'uP_DP:DataPath|n_REG:A_REG|Q[1]~1'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 2.972 ns; Loc. = LCFF_X31_Y18_N9; Fanout = 18; REG Node = 'uP_DP:DataPath|n_REG:A_REG|Q[1]'
+        Info: Total cell delay = 1.666 ns ( 56.06 % )
+        Info: Total interconnect delay = 1.306 ns ( 43.94 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 163 megabytes
+    Info: Processing ended: Tue Dec 08 17:34:41 2015
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+
