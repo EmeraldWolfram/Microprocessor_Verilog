@@ -9,7 +9,8 @@ module uP_tb();
 	wire [7:0] Output;
 	wire [10:0] CtrlSignals;
 	wire [2:0] Ins;
-	integer errors, i;
+	integer errors;
+	reg [7:0] i, j;
 //*******************GLOBAL INITIAL CLOCK and GLOBAL INITIAL RESET********************
 	initial begin
 	CLOCK <= 0;
@@ -27,18 +28,18 @@ module uP_tb();
 	initial begin
 	errors	= 0;
 	Enter	= 0;
-	for(i = 1; i < 6; i = i + 1)
+	for(i = 1; i < 100; i = i + 1)
 		begin
+	#2   RESET_STATE();
+		 j = ({$random} % 256);
+	#30  INPUT_SOMETHING(j);
 	#30  INPUT_SOMETHING(i);
-	#30  INPUT_SOMETHING(8'd1);
-	#2	comp_OUTPUT(8'd1, Output);
+	#2	 FIND_LAST(j, i);
 		end
-	for(i = 2; i < 12; i = i + 2)
-		begin
-	#30  INPUT_SOMETHING(i);
-	#30  INPUT_SOMETHING(8'd2);
-	#2	comp_OUTPUT(8'd2, Output);
-		end
+	if(errors == 0)
+		$display("Zero Error\nSimulation SUCCESSFUL");
+	else
+		$display("Total Error: %d, Simulation FAILED", errors);
 #2	$finish;
 	end
 	
@@ -50,27 +51,46 @@ module uP_tb();
 	task INPUT_SOMETHING;
 	input [7:0] dataIn;
 	begin
-	Input = dataIn;
-#10 Enter = 1;
-#4  Enter = 0;
-	$display("%dns, Input : %d", $time, Input);	
+		Input = dataIn;
+	#10 Enter = 1;
+	#4  Enter = 0;
+		$display("%dns, Input : %d", $time, Input);	
 	end
 	endtask
 	
+	task RESET_STATE;
+	begin
+		RESET = 1;
+	#2  RESET = 0;
+	end
+	endtask
+
+	task FIND_LAST;
+	input [7:0] X;
+	input [7:0] Y;
+	begin
+		while(X != Y)
+		begin
+			if(X > Y)	X = X-Y;
+			else		Y = Y-X;
+		end
+		comp_OUTPUT(X);
+	end
+	endtask
+
 	task comp_OUTPUT;
 	input [7:0] expectedValue;
-	input [7:0] actualValue;
 	begin
 		while(Halt == 0)
 			begin
 #100		i = i;
 			end
-		$display("%dns, Output : %d", $time, Output);	
-		if(actualValue[7:0] != expectedValue[7:0])
+		$display("%dns \tOutput : %d\n", $time, Output);	
+		if(Output[7:0] != expectedValue[7:0])
 			begin
 			errors = errors + 1;
 			$display("\t\t\t*******************\n%dns: ERROR: Expected %h was %h\n", 
-			$time, expectedValue, actualValue);
+			$time, expectedValue, Output);
 			end
 	end
 	endtask
