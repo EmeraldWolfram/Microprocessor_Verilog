@@ -30,11 +30,15 @@ module uP_tb();
 	Enter	= 0;
 	for(i = 1; i < 100; i = i + 1)
 		begin
-	#2   RESET_STATE();
-		 j = ({$random} % 256);
-	#30  INPUT_SOMETHING(j);
-	#30  INPUT_SOMETHING(i);
-	#2	 FIND_LAST(j, i);
+	#2    RESET_STATE();
+        j = ({$random} % 128);
+        while(j == 0)
+          begin
+          j = ({$random} % 128);
+          end
+	#30   INPUT_SOMETHING(j);
+	#30   INPUT_SOMETHING(i);
+	#2	  FIND_LAST(j, i);
 		end
 	if(errors == 0)
 		$display("Zero Error\nSimulation SUCCESSFUL");
